@@ -1,0 +1,89 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <div>
+      <section class="my-2 background">
+        <div class="py-3 container">
+          <div class="row d-flex justify-content-center">
+            <div class="col-6 mx-2 todoMain d-flex justify-content-center">
+              Todo List
+            </div>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="col-6 mx-2 list d-flex justify-content-center">
+              <ul class = "mx-5 w-100" id="todoList">
+                  
+              </ul>
+          </div>
+          </div>
+        </div>
+        </div>
+      </section>
+       
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        $("#enterBtn").click(function(){
+            addTodo();
+        });
+      
+        $(document).on('keypress',function(e) {
+          if(e.which == 13) {
+            addTodo();
+          }
+        });
+      
+        $(document).on('click', '.close', function() {
+          $(this).parent().remove();
+        });
+      });
+      
+      function addTodo(){
+      
+        var inputTodo = $("#stuffInput").val();
+        var checkImportant = false;
+        var checkUrgent = false
+      
+        if (inputTodo.trim().length === 0) return;
+      
+        if ($('#importantCheck').is(":checked")){
+          checkImportant = true;
+        }else{
+          checkImportant = false;
+        };
+        if ($('#urgentCheck').is(":checked")){
+          checkUrgent = true;
+        }else{
+          checkUrgent = false;
+        };
+      
+        // add todo
+        if ( checkUrgent == true && checkImportant == true){
+          $("#uiList").append('<li class="todo"> <input class ="mx-2" type="checkbox"> <label class ="mx-2">'+ inputTodo +'</label><span class="close">X</span></li>');
+          $("#todoList").append('<li class="todo"> <input class ="mx-2" type="checkbox"> <label class ="mx-2">'+ inputTodo + '</label><span class="close small">Urgent & Important  X</span></li>');
+
+        };
+        if ( checkUrgent == true && checkImportant == false){
+          $("#uniList").append('<li class="todo"> <input class ="mx-2" type="checkbox"> <label class ="mx-2">'+ inputTodo +'</label><span class="close">X</span></li>');
+          $("#todoList").append('<li class="todo"> <input class ="mx-2" type="checkbox"> <label class ="mx-2">'+ inputTodo + '</label><span class="close small">Urgent  X</span></li>');
+
+        };
+        if ( checkUrgent == false && checkImportant == true){
+          $("#nuiList").append('<li class="todo"> <input class ="mx-2" type="checkbox"> <label class ="mx-2">'+ inputTodo +'</label><span class="close">X</span></li>');
+          $("#todoList").append('<li class="todo"> <input class ="mx-2" type="checkbox"> <label class ="mx-2">'+ inputTodo + '</label><span class="close small">Important  X</span></li>');
+
+        };
+        if ( checkUrgent == false && checkImportant == false){
+          $("#nuniList").append('<li class="todo"> <input class ="mx-2" type="checkbox"> <label class ="mx-2">'+ inputTodo +'</label><span class="close">X</span></li>');
+          $("#todoList").append('<li class="todo"> <input class ="mx-2" type="checkbox"> <label class ="mx-2">'+ inputTodo + '</label><span class="close small">  X</span></li>');
+
+        };
+        
+        $("#stuffInput").val("");
+      
+      };
+      
+      
+</script>
+
+<%- include("partials/footer.ejs") %> 

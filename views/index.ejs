@@ -1,0 +1,120 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <div>
+
+        <section class="my-2 background">
+            <div class="py-3 container">
+                <div class="row">
+                    <div class="col mx-2 nUI d-flex justify-content-center">
+                      Non-Urgent, Important
+                    </div>
+                    <div class="col mx-2 UI d-flex justify-content-center">
+                      Urgent, Important
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mx-2 list d-flex justify-content-center">
+                        <ul class = "mx-5 w-100" id="nuiList">
+                        </ul>
+                    </div>
+                    <div class="col mx-2 list d-flex justify-content-center">
+                        <ul class = "mx-5 w-100" id="uiList">
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-3 mx-2 nUnI d-flex justify-content-center">
+                      Non-Urgent, Non-Important
+                    </div>
+                    <div class="col mt-3  mx-2  UnI d-flex justify-content-center">
+                      Urgent, Non-Important
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mx-2 list d-flex justify-content-center">
+                        <ul class = "mx-5 w-100" id="nuniList">
+                            
+                        </ul>
+                    </div>
+                    <div class="col mx-2 list d-flex justify-content-center">
+                        <ul class = "mx-5 w-100" id="uniList">
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        $("#enterBtn").click(function(){
+            addTodo();
+        });
+      
+        $(document).on('keypress',function(e) {
+          if(e.which == 13) {
+            addTodo();
+          }
+        });
+      
+        $(document).on('click', '.close', function() {
+          $(this).parent().remove();
+        });
+
+        $(document).on('click', '.todoCheck', function() {
+          if($(this).checked){
+            console.log("yes");
+          }else{
+            console.log("no");
+          }
+         
+        });
+ 
+    
+
+      });
+
+      function addTodo(){
+      
+        var inputTodo = $("#stuffInput").val();
+        var checkImportant = false;
+        var checkUrgent = false
+      
+        if (inputTodo.trim().length === 0) return;
+      
+        if ($('#importantCheck').is(":checked")){
+          checkImportant = true;
+        }else{
+          checkImportant = false;
+        };
+        if ($('#urgentCheck').is(":checked")){
+          checkUrgent = true;
+        }else{
+          checkUrgent = false;
+        };
+      
+        // add todo
+        if ( checkUrgent == true && checkImportant == true){
+          $("#uiList").append('<li class="todo"> <input class ="mx-2 todoCheck" type="checkbox"> <label class ="mx-2 todoLabel">'+ inputTodo +'</label><span class="close">X</span></li>');
+        };
+        if ( checkUrgent == true && checkImportant == false){
+          $("#uniList").append('<li class="todo"> <input class ="mx-2 todoCheck" type="checkbox"> <label class ="mx-2 todoLabel">'+ inputTodo +'</label><span class="close">X</span></li>');
+        };
+        if ( checkUrgent == false && checkImportant == true){
+          $("#nuiList").append('<li class="todo"> <input class ="mx-2 todoCheck" type="checkbox"> <label class ="mx-2 todoLabel">'+ inputTodo +'</label><span class="close">X</span></li>');
+        };
+        if ( checkUrgent == false && checkImportant == false){
+          $("#nuniList").append('<li class="todo"> <input class ="mx-2 todoCheck" type="checkbox"> <label class ="mx-2 todoLabel">'+ inputTodo +'</label><span class="close">X</span></li>');
+        };
+        
+        $("#stuffInput").val("");
+      
+      };
+      
+      
+</script>
+
+<%- include("partials/footer.ejs") %> 

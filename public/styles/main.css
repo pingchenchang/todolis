@@ -1,0 +1,84 @@
+body{
+    background-color: #F4F2DE;
+}
+
+.background{
+    background-color: #E9B384;
+}
+
+.checkbox{
+    color:white;
+    vertical-align:middle;
+}
+.UI{
+    color: #3d372f;
+    border-radius: 10px 10px 0 0;
+    background-color: #E74646;
+    
+}
+
+.nUI{
+    color: #3d372f;
+    border-radius: 10px 10px 0 0;
+    background-color: #FF8551;
+}
+
+.UnI{
+    border-radius: 10px 10px 0 0;
+    background-color: #CCD5AE;
+}
+
+.nUnI{
+    color: #3d372f;
+    border-radius: 10px 10px 0 0;
+    background-color: #C8B6A6;
+}
+
+.list{
+
+    border-radius: 0 0 5px 5px;
+    background-color: #F8F0E5;
+}
+
+ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+ul li{
+
+    padding: 3px;
+   
+    font-size: 18px;
+    color: #675D50;
+    display: block;
+    position: relative;
+}
+
+.close {
+    color:#9DB2BF;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    padding: 12px 16px;
+    transform: translate(0%, -50%);
+}
+
+.btnDelete{
+    display: inline-block;
+    content: "\00d7"; /* This will render the 'X' */
+}
+
+.navbarBg{
+    background-color: #7C9D96;
+}
+.todoMain{
+    color: #3d372f;
+    border-radius: 10px 10px 0 0;
+    background-color: #C8B6A6;
+}
+
+.completed {
+    text-decoration: line-through;
+}

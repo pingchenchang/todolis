@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TODO List</title>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../public/styles/main.css">
+</head>
+<body>
+    <div class="container- m-3">
+        <section class="p-2 m-1 background">
+            <div class="container mx-5">
+                <div class="row ">
+                  <div class="pl-5 col-3">
+                    <input type="text" id="stuffInput" class="h-100 w-100" placeholder="Todo">
+                  </div>
+                  <div class="col-sm">
+                    <div class ="row">
+                        <div class="col-sm d-flex align-items-center">
+                            <input id="urgentCheck" class="h-50 w-50 d-flex align-items-center justify-items-center" type="checkbox" value="uchecked">
+                            <label class = "checkbox"> 緊急 </label>
+                        </div>
+                        <div class="col-sm d-flex align-items-center">
+                            <input id="importantCheck" class="h-50 w-50 d-flex align-items-center justify-items-center" type="checkbox" value="ichecked">
+                            <label class = "checkbox"> 重要 </label>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <button id="enterBtn" class="btnAddTask h-100 ">Enter</button>
+                  </div>
+                </div>
+              </div>            
+        </section>
+        <section class="p-2 m-1 background">
+            <div class="container">
+                <div class="row">
+                    <div class="col mx-2 nUI d-flex justify-content-center">
+                        不緊急重要
+                    </div>
+                    <div class="col mx-2 UI d-flex justify-content-center">
+                        緊急重要
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mx-2 list d-flex justify-content-center">
+                        <ul class = "mx-5 w-100" id="nuiList">
+                        </ul>
+                    </div>
+                    <div class="col mx-2 list d-flex justify-content-center">
+                        <ul class = "mx-5 w-100" id="uiList">
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-3 mx-2 nUnI d-flex justify-content-center">
+                        不緊急不重要
+                    </div>
+                    <div class="col mt-3  mx-2  UnI d-flex justify-content-center">
+                        緊急不重要
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mx-2 list d-flex justify-content-center">
+                        <ul class = "mx-5 w-100" id="nuniList">
+                            
+                        </ul>
+                    </div>
+                    <div class="col mx-2 list d-flex justify-content-center">
+                        <ul class = "mx-5 w-100" id="uniList">
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="../function.js"></script>
+</html>
